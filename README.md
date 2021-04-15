@@ -1,2 +1,2 @@
 # modento-poc
-Proof-of-concept 
+To run tests, run `pytest tests/`

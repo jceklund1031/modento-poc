@@ -1,17 +1,21 @@
 from base.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 import time
 
 class PatientsPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
+        driver.wait = WebDriverWait(driver, 5)
         self.driver = driver
     
     #locators
     _patient_tab = "//a[@test-id='patients-tab']" #click
-    _dots_menu = "(//div[@class='dropdown'])[1]" #click
+    _dots_menu = "(//div[@class='dropdown'])[10]" #click
     _forms_dropdown_option = "(//button[@role='menuitem'])[2]" #hover
     _prepare_patient_forms = "//a[contains(text(),'Prepare patient forms')]" #click
     _patient_forms_h2 = "modal-person-dialog" #class
@@ -32,9 +36,8 @@ class PatientsPage(BasePage):
         forms_menu_item = self.driver.find_element(By.XPATH, self._forms_dropdown_option)
         action.move_to_element(forms_menu_item).perform()
 
-        time.sleep(3)
-
-        self.driver.find_element(By.XPATH, self._prepare_patient_forms).click()
+        time.sleep(1)
+        self.driver.wait.until(EC.element_to_be_clickable((By.XPATH, self._prepare_patient_forms))).click()
 
     def verify_patient_forms_modal_is_displayed(self):
         """

@@ -27,10 +27,9 @@ class TestFamilySelect:
         self.si.login(username="jon+admin@modento.io", password="9Eiynh9jaH77")
         self.fp.navigate_to_patient_forms_modal()
         self.fp.verify_patient_forms_modal_is_displayed()
-        time.sleep(3)
+        time.sleep(1)
         self.ft.family_initial_setup()
         self.ft.family_send_and_close_button()
-        time.sleep(2)
         self.ft.verify_form_sent_to_family
 
       

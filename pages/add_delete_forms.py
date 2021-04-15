@@ -26,7 +26,7 @@ class AddRemoveForms(BasePage):
 
     def add_new_form(self):
         self.driver.find_element(By.XPATH, self._add_form).click()
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, self._new_form_add).click()
 
 

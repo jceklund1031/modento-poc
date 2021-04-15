@@ -4,6 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 
+
 class SelectedForms(BasePage):
 
     def __init__(self, driver):
@@ -21,6 +22,7 @@ class SelectedForms(BasePage):
     _green_validation = "//div[@role='alertdialog']" #validate the form has been sent by modento
     #api call to confirm the form was delivered
 
+    """Checking the check box features, unableto test is they work without api calls"""
     def form_check_box(self):
         self.driver.find_element(By.XPATH, self._select_qr_code).click()
         self.driver.find_element(By.XPATH, self._select_pt_initial).click()
@@ -37,9 +39,10 @@ class SelectedForms(BasePage):
         dh_form_present = self.driver.find_element(By.XPATH, self._verify_dh_form)
         assert dh_form_present.is_displayed()
     
-    def minor_form_checkbox(self):
+    def minor_form_checkbox(self): #need api call to conirm minor form sent
         self.driver.find_element(By.XPATH, self._selected_minor_form).click()
     
-    def minor_form_checkbox_unclick(self):
+    def minor_form_checkbox_unclick(self): #checking to make sure check box atleast works
         self.driver.find_element(By.XPATH, self._selected_minor_form).click()
   
+    """"Need to make API calls, payloads- request/response to confirm these go through when sent"""

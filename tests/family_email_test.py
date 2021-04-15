@@ -2,6 +2,7 @@ from pages.forms_page import PatientsPage
 from pages.sign_in_page import SignInPage
 from pages.family_email import FamilyEmail
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 import time
 import pytest
 
@@ -27,8 +28,7 @@ class TestFamilySelect:
         self.si.login(username="jon+admin@modento.io", password="9Eiynh9jaH77")
         self.fp.navigate_to_patient_forms_modal()
         self.fp.verify_patient_forms_modal_is_displayed()
-        time.sleep(3)
+        time.sleep(1)
         self.fe.family_initial_setup()
         self.fe.family_send_and_close_button()
-        time.sleep(2)
         self.fe.verify_form_sent_to_family

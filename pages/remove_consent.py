@@ -18,16 +18,16 @@ class RemoveConsents(BasePage):
     _remove_new_consent = "(//*[@class='far fa-times-circle action-icon'])[4]"
     
  
-
+    """Checking the add & Remove v2 consent feature"""
    
     def add_new_consent(self):
         self.driver.find_element(By.XPATH, self._add_consent).click()
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, self._new_consent_lookup).click()
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, self._new_consent_add).click()
         self.driver.find_element(By.XPATH, self._add_consent).click()
-        time.sleep(2)
+        time.sleep(1)
 
 
     def verify_consent_is_present(self): # confirming consent is present in field
@@ -38,7 +38,6 @@ class RemoveConsents(BasePage):
         self.driver.find_element(By.XPATH, self._remove_new_consent).click()
 
     def verify_form_no_longer_displayed(self):
-        # assert self.driver.find_element(By.XPATH, self._consent_form).is_displayed() is None
         try:
             element = self.driver.find_element(By.XPATH, self._consent_form)
             if element.is_displayed():

@@ -17,13 +17,13 @@ class AddConsents(BasePage):
     _verify_new_consent = "//li[@title='COVID-19 Pandemic Emergency Dental Treatment Consent Form']"
     
  
-
+    """Checking the add v2 consent feature"""
    
     def add_new_consent(self):
         self.driver.find_element(By.XPATH, self._add_consent).click()
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, self._new_consent_lookup).click()
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.XPATH, self._new_consent_add).click()
 
 

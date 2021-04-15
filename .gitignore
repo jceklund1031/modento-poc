@@ -1,3 +1,5 @@
 geckodriver.log
 .vscode/
 .DS_Store
+*__pycache__/
+report.html

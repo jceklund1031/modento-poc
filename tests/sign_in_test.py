@@ -18,7 +18,7 @@ class TestSignIn:
         si.enter_password("9Eiynh9jaH77")
         si.click_login_btn()
 
-        time.sleep(3)
+        time.sleep(1)
         
         si.handle_modal()
         si.verify_avatar_present()
